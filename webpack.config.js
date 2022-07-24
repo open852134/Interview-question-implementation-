@@ -28,4 +28,9 @@ module.exports = {
       template: "./index.html",
     }),
   ],
+  resolve: {
+    alias: {
+      "@src": path.resolve(__dirname, "src/"),
+    },
+  },
 };
