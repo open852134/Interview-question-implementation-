@@ -1,11 +1,10 @@
 import React from "react";
-import PropTypes from "prop-types";
+import { RoomAllocation } from "@src/components/RoomAllocation";
+
 import "./scss/main.scss";
 
-const App = (props) => {
-  return <div>App</div>;
+const App = () => {
+  return <RoomAllocation guest={12} room={3} onChange={(result) => console.log(result)} />;
 };
-
-App.propTypes = {};
 
 export default App;
