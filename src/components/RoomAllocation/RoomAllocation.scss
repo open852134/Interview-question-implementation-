@@ -1,0 +1,64 @@
+$spacing: 12px;
+
+.room-allocation {
+  margin-top: 36px;
+  border: dashed 2px #9e9e9e;
+  padding: $spacing;
+  min-width: 400px;
+  max-width: 50vw;
+  border-radius: 3px;
+
+  &__title {
+    font-weight: 600;
+    margin-bottom: $spacing;
+  }
+
+  &__unassigned {
+    background-color: #eefdff;
+    padding: 18px 12px;
+    color: #6e6e6e;
+    margin-bottom: $spacing;
+  }
+
+  &__room {
+    position: relative;
+    padding: $spacing 0;
+
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      border: 1px solid #ebebeb;
+    }
+
+    &:last-child {
+      &:after {
+        content: none;
+      }
+    }
+
+    &__title {
+      font-weight: 600;
+      margin-bottom: $spacing;
+    }
+
+    &__allocation {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: $spacing;
+
+      &__title {
+        p {
+          margin-bottom: $spacing / 2;
+        }
+
+        small {
+          color: #6e6e6e;
+        }
+      }
+    }
+  }
+}
