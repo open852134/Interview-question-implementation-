@@ -1,3 +1,9 @@
 export const getAllocationAmount = (allocationObject) => {
-  return Object.values(allocationObject).reduce((prev, curr) => prev + curr);
+  if (Object.values(allocationObject).length === 0) {
+    return 0;
+  }
+
+  return Object.values(allocationObject).reduce((prev, curr) => {
+    return prev + curr;
+  });
 };
