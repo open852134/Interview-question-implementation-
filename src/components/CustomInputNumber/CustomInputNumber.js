@@ -18,12 +18,10 @@ const CustomInputNumber = ({
   disabled,
   onChange,
   onBlur,
-  onError,
   ...reset
 }) => {
   const inputEl = useRef({});
   const [isPressed, setIsPressed] = useState(null);
-  const [internalValue, setInternalValue] = useState(Number(value));
   const [errorMessage, setErrorMessage] = useState(" ");
 
   useEffect(() => {
@@ -32,17 +30,20 @@ const CustomInputNumber = ({
 
   useEffect(() => {
     let timer = null;
-    if (!isPressed) return;
+    if (!isPressed) {
+      clearInterval(timer);
+      return;
+    }
 
-    timer = setTimeout(() => {
+    timer = setInterval(() => {
       isPressed === ACTION_CODE.ADD && addNumber();
       isPressed === ACTION_CODE.MINUS && minusNumber();
     }, 350);
 
     return () => {
-      clearTimeout(timer);
+      clearInterval(timer);
     };
-  }, [isPressed, internalValue]);
+  }, [isPressed]);
 
   const validate = (value) => {
     if (isNaN(value)) {
@@ -75,7 +76,6 @@ const CustomInputNumber = ({
     nativeInputValueSetter.call(inputEl.current, nextValue);
     inputEl.current.dispatchEvent(new Event("input", { bubbles: true }));
 
-    setInternalValue(nextValue);
     setErrorMessage("");
   };
 

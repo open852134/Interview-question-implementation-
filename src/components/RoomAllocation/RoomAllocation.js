@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useMemo } from "react";
 import PropTypes from "prop-types";
 import { getAllocationAmount } from "@src/libs";
 import { CustomInputNumber } from "@src/components/CustomInputNumber";
@@ -77,7 +77,7 @@ const RoomAllocation = ({ guest, room, onChange }) => {
               </div>
 
               {ROOM_TYPE.map((roomType) => (
-                <div ket={roomType.key} className="room-allocation__room__allocation">
+                <div key={roomType.key} className="room-allocation__room__allocation">
                   <div className="room-allocation__room__allocation__title">
                     <p>{roomType.label}</p>
                     {roomType.tips && <small>{roomType.tips}</small>}
