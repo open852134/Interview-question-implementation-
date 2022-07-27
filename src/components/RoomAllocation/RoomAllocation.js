@@ -24,8 +24,7 @@ const RoomAllocation = ({ guest, room, onChange }) => {
 
   const handleCalculate = (e) => {
     const allocationMount = Number(e.target.value);
-    const currentField = e.target.name.split("-")[0];
-    const currentIndex = e.target.name.split("-")[1];
+    const [currentField, currentIndex] = e.target.name.split("-");
 
     const result = roomAllocation.reduce((accumulator, currentValue, index) => {
       if (index !== Number(currentIndex)) {
